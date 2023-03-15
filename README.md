@@ -47,7 +47,8 @@ Implement a word guess game with a user-friendly interface. Here are the functio
 
 **Server :** Node.js
 
-
+## Team Name
+Stratix Solutions
 ## Team Members
 
 | Name             | Github                                                                |
