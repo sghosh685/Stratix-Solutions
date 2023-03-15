@@ -36,11 +36,16 @@ Implement a word guess game with a user-friendly interface. Here are the functio
 13.Game theme Animation: The game can include different animation themes such as Crack the Code and Hacking the Computer to add to the player's experience.
 
 14.Responsive Design/Layout: Ensuring that our site is optimised for different screen sizes and devices, including smartphones, desktop and tablets.
+
+## Game Design
+![Phase 2 Game Design](https://user-images.githubusercontent.com/68800612/225209158-c1a2fb2d-d179-4489-af32-b05ffdd2041c.png)
+
+
 ## Tech Stack
 
 **Front :** Html, CSS, Javascript, JQuery
 
-**Server:** Node.js
+**Server :** Node.js
 
 
 ## Team Members
@@ -53,5 +58,7 @@ Implement a word guess game with a user-friendly interface. Here are the functio
 | TBD | TBD |
 
 ## Badges
-
+Course: EECS1012 3.00 Introduction to Computing: a Net-centric Approach
+Instructor: Hui Wang
+Project TA: Miodrag Tasic
 [![York University](https://img.shields.io/badge/EECS%201012-York%20University-red.svg)](https://www.yorku.ca/)
