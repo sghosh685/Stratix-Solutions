@@ -1,44 +1,24 @@
 # Stratix-Solutions
-Guess What The Ultimate Single-Player Word Guessing Adventure
+**Guess What The Ultimate Single-Player Word Guessing Adventure
+**
+“Guess What” is a single-player word-guessing game with a score system. The game randomly takes a word stored in one of many arrays on the server-side file. Each array will be based around one of the several categories that the player was prompted to choose from at the start of the game. Each round has a limited number of guesses for a randomly given word, and correct answers earn points. The game will check if the generated word matches the user's input. This can be done by comparing each letter of the generated word with the letters inputted by the user. The game's interface includes a Hints section and the Game Stats system allows players to see their game statistics for the duration of the session. 
 
-Phase 0: 
-PART A:
-Title of the Project: Guess What : The Ultimate Single-Player Word-Guessing Adventure
-Project Description: “Guess What” is a single-player word-guessing game with a score or leaderboard system. The game uses an API to generate words based on the player's choice of themes. Each round has a limited number of guesses, and correct answers earn points. Bonus points may be earned for guessing within a time frame or using fewer guesses. The game's interface includes a hints section, and the leaderboard system allows players to compete online. The database stores game data. 
+**Functional requirements:
+**
+Implement a word guess game with a user-friendly interface. Here are the functional features that we have included in the Game Design:
 
-Phase 1: 
-PART B: 
-Project Description (revised):
+1.User Name: The user’s name will be stored in a database once it is entered to be later used for the in-game data.
+2.Theme: The user will get to pick from a number of different word themes before the game starts (ex: sports, computers, cities, food, etc.). Once the user selects a theme, the back-end will choose from a specific array storing words that match said theme.
+3.Play: After inputting the NAME and THEME selection (dropdown Lists), we can start playing by  submitting the User Name and User preferences. If no input or selection has been done the prompt will appear “Please enter a name or select theme to continue”.
+4.Rules: A simple window that will pop up to show text that explains the rules of the game. 
+5.Game Stats: The game can include a stats feature to track the points earned during the game. This feature can also record and display statistics when more than one game is played during a single session. 
+6.Settings:  A setting window will pop up when we click the settings button. A user can configure the settings like dark or light background and toggle on/off the game audio.
+7.Attempts: The game will display how many attempts the user has to guess the word. When the user makes an incorrect guess they will lose one attempt.
+8.Score: The score will display on the top right of the screen during the entire game. The score will increment if the player makes a correct guess of letters.
+9.Qwerty Keyboard: To make it easier for the player to input letters, we can include a Qwerty keyboard on the screen that they can use to select the letters. This feature can make the game more user-friendly, especially for players who may have difficulty typing on a traditional keyboard.
+10.Hints: When the user clicks the “Hint” button, the game will reveal a letter about the word they are trying to guess, and an attempt for that round will be deducted. There will be a hint limit indicated above the button.
+11.Guess word Empty Boxes: Initially, a row of empty boxes corresponding to the length of the randomly chosen word will appear in the middle of the screen. As the player correctly guesses each letter, the letters will be revealed in these boxes. 
+12.Incorrect Guessed Letter: The game keeps track of every letter that the player has guessed for each round and displays them in a small box so the player can know which letters that were guessed but are not included in the hidden words.
+13.Game theme Animation: The game can include different animation themes such as Crack the Code and Hacking the Computer to add to the player's experience.
+14.Responsive Design/Layout: Ensuring that our site is optimised for different screen sizes and devices, including smartphones, desktop and tablets.
 
-Part C: 
-Functional requirements:
-
-Implement a word guess game with a user-friendly interface. Here are the features that we can include:
-
-Word Lists: The game can include different word lists such as common words, difficult words, or words related to a specific theme, such as sports or food.
-
-Difficulty Levels: The game can include a feature that allows the player to select the difficulty level, such as easy, medium, or hard. This feature can affect the number of chances they have to guess the word and the number of points awarded for a correct guess.
-
-Bonus Points: The game can include a feature that allows the player to earn bonus points by guessing words within a certain time frame or by using fewer guesses than allowed.
-
-Time-Based Mode: The game can include a time-based mode where the user has a limited time to guess the word.
-
-Hint Button: The game can include a hint button that the player can use to receive a clue or reveal a letter about the word they are trying to guess.
-
-Coins System: The game can allow users to earn coins or points by guessing words correctly and use them to purchase hints or unlock higher difficulty levels.
-
-Leaderboard System: The game can include a leaderboard feature to track the top scorers of the game. This feature can also allow the player to submit their score and compete with other players online.
-
-Game History: The game can store information on the player's game history, such as their highest score, average score, and number of games played.
-
-Performance Optimization: Ensuring that our site loads quickly and efficiently by optimising images, code, and other assets.
-
-Responsive Design: Ensuring that our site is optimised for different screen sizes and devices, including smartphones and tablets.
-
-Animation Background: The game can include an animation in the background while playing the game.
-
-Qwerty Keyboard: To make it easier for the player to input letters, we can include a Qwerty keyboard that they can use to select the letters. This feature can make the game more user-friendly, especially for players who may have difficulty typing on a traditional keyboard.
-
-Word Matching: We can implement a way to check if the generated word matches the user's input. This can be done by comparing each letter of the generated word with the letters inputted by the user. We can include a feature that validates the user input to ensure that it only includes valid letters. This can prevent the player from entering numbers or special characters that are not part of the word.
-
-Word Generator API: Instead of manually creating word lists, we can integrate an API that generates word lists for us. This feature can provide a more diverse selection of words for the player to guess, and can also save time and effort in manually creating and updating word lists.
