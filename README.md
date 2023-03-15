@@ -59,6 +59,6 @@ Implement a word guess game with a user-friendly interface. Here are the functio
 
 ## Badges
 Course: EECS1012 3.00 Introduction to Computing: a Net-centric Approach
-Instructor: Hui Wang
-Project TA: Miodrag Tasic
+| Instructor: Hui Wang
+| Project TA: Miodrag Tasic
 [![York University](https://img.shields.io/badge/EECS%201012-York%20University-red.svg)](https://www.yorku.ca/)
