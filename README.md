@@ -3,8 +3,8 @@ Guess What The Ultimate Single-Player Word Guessing Adventure
 
 “**Guess What**” is a single-player word-guessing game with a score system. The game randomly takes a word stored in one of many arrays on the server-side file. Each array will be based around one of the several categories that the player was prompted to choose from at the start of the game. Each round has a limited number of guesses for a randomly given word, and correct answers earn points. The game will check if the generated word matches the user's input. This can be done by comparing each letter of the generated word with the letters inputted by the user. The game's interface includes a Hints section and the Game Stats system allows players to see their game statistics for the duration of the session. 
 
-**Functional requirements:
-**
+**Functional requirements**:
+
 Implement a word guess game with a user-friendly interface. Here are the functional features that we have included in the Game Design:
 
 1.**User Name**: The user’s name will be stored in a database once it is entered to be later used for the in-game data.
