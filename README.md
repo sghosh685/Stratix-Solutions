@@ -58,6 +58,9 @@ Implement a word guess game with a user-friendly interface. Here are the functio
 | TBD | TBD |
 
 ## Badges
+An academic course project for creating a web-application done under the supervision of Instructor and Project TA for EECS 1012.
+
+
 Course: EECS1012 3.00 Introduction to Computing: a Net-centric Approach
 | Instructor: Hui Wang
 | Project TA: Miodrag Tasic
