@@ -64,4 +64,6 @@ As an academic project for EECS 1012, we will be creating a web application unde
 Course: EECS1012 3.00 Introduction to Computing: a Net-centric Approach
 | Instructor: Hui Wang
 | Project TA: Miodrag Tasic
+
+
 [![York University](https://img.shields.io/badge/EECS%201012-York%20University-red.svg)](https://www.yorku.ca/)
