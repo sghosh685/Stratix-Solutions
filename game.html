@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Hangman Game</title>
+    <link rel="stylesheet" type="text/css" href="game.css">
+  </head>
+  <body>
+    <div class="container">
+      <nav>
+        <ul>
+          <li><a href="#">Home</a></li>
+          <li><a href="#">About</a></li>
+          <li><a href="#">Contact</a></li>
+        </ul>
+      </nav>
+      <div class="header">
+        <div class="attempts">Attempts left: <span id="attempts">6</span></div>
+        <div class="score">Score: <span id="score">0</span></div>
+      </div>
+      <div class="word-container">
+        <div id="empty-boxes"></div>
+      </div>
+      <div class="keyboard-container">
+        <div id="qwerty-container">
+<div class="qwerty-row">
+    <button class="qwerty-key">Q</button>
+    <button class="qwerty-key">W</button>
+    <button class="qwerty-key">E</button>
+    <button class="qwerty-key">R</button>
+    <button class="qwerty-key">T</button>
+    <button class="qwerty-key">Y</button>
+    <button class="qwerty-key">U</button>
+    <button class="qwerty-key">I</button>
+    <button class="qwerty-key">O</button>
+    <button class="qwerty-key">P</button>
+  </div>
+  <div class="qwerty-row">
+    <button class="qwerty-key">A</button>
+    <button class="qwerty-key">S</button>
+    <button class="qwerty-key">D</button>
+    <button class="qwerty-key">F</button>
+    <button class="qwerty-key">G</button>
+    <button class="qwerty-key">H</button>
+    <button class="qwerty-key">J</button>
+    <button class="qwerty-key">K</button>
+    <button class="qwerty-key">L</button>
+  </div>
+  <div class="qwerty-row">
+    <button class="qwerty-key">Z</button>
+    <button class="qwerty-key">X</button>
+    <button class="qwerty-key">C</button>
+    <button class="qwerty-key">V</button>
+    <button class="qwerty-key">B</button>
+    <button class="qwerty-key">N</button>
+    <button class="qwerty-key">M</button>
+  </div>
+</div>
+        <div id="incorrect-letters"></div>
+        <div id="hint-container">
+          <button id="hint">Hint</button>
+          <div id="hint-limit">Hint limit: <span id="current-hint-limit">3</span></div>
+        </div>
+      </div>
+      <div class="reset-container">
+        <button id="reset-button" onclick="resetGame()">Reset Game</button>
+      </div>
+      <button id="quit">Quit</button>
+    </div>
+    <script src="game.js"></script>
+  </body>
+</html>

@@ -1,0 +1,170 @@
+/* General styles */
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-colour: #f7f7f7;
+}
+
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+  color: #333;
+  font-weight: bold;
+  margin-right: 20px;
+}
+
+h1 {
+  margin-top: 0;
+}
+
+/* Navigation bar styles */
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #333;
+  color: #fff;
+  padding: 10px;
+}
+
+nav a:hover {
+  color: #ccc;
+}
+
+/* Attempts and score styles */
+
+#attempts-container {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+  margin-bottom: 10px;
+  font-size: 18px;
+}
+
+#attempts {
+  font-weight: bold;
+  color: #f00;
+}
+
+#score {
+  font-weight: bold;
+}
+
+/* Empty boxes styles */
+
+#empty-boxes {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+}
+
+.empty-box {
+  border-bottom: 2px solid #333;
+  margin-right: 10px;
+  width: 30px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+/* Qwerty keyboard styles */
+
+#qwerty-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+button.key {
+  width: 50px;
+  height: 50px;
+  margin: 5px;
+  font-size: 24px;
+  font-weight: bold;
+  background-color: #ddd;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button.key:hover {
+  background-color: #ccc;
+}
+
+button.key.disabled {
+  background-color: #eee;
+  color: #ccc;
+  cursor: default;
+}
+
+/* Incorrect letters styles */
+
+#incorrect-letters {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-items: center;
+  margin-right: 20px;
+  margin-bottom: 20px;
+}
+
+.incorrect-letter {
+  margin-right: 10px;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+/* Hints styles */
+
+#hint-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+#hint {
+  background-color: #ccc;
+  border: none;
+  border-radius: 5px;
+  padding: 10px;
+  font-size: 18px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+#hint:hover {
+  background-color: #bbb;
+}
+
+#hint-limit {
+  margin-top: 5px;
+  font-size: 14px;
+}
+
+#quit {
+  background-color: #f00;
+  border: none;
+  border-radius: 5px;
+  padding: 10px;
+  color: #fff;
+  font-size: 18px;
+  font-weight: bold;
+  cursor: pointer;
+  margin-top: 10px;
+}
