@@ -56,7 +56,7 @@ Stratix Solutions
 | Saikat Ghosh | sghosh685 |
 | Vanessa Yu | v-nessy |
 | Rodney Josephs | rodJ07 |
-| TBD | TBD |
+| Oshin Sondhi | SondhiOshin |
 
 ## Badges
 As an academic project for EECS 1012, we will be creating a web application under the guidance of our Instructor and project TA.
