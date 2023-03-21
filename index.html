@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Guess What - Home Page</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+
+</head>
+
+<body>
+  <header>
+    <nav>
+      <div class="menu-icon">
+        <i class="fa fa-bars"></i>
+      </div>
+      <div class="logo">
+        <a href="#">Guess What</a>
+      </div>
+      <div class="menu">
+        <ul>
+          <li><a href="about.html">About <i class="fa fa-info-circle"></i></a></li>
+          <li><a href="rules.html">Rules <i class="fas fa-book"></i></a></li>
+          <li><a href="settings.html">Settings <i class="fas fa-cog"></i></a></li>
+          <li><a href="#">Game Stats <i class="fas fa-chart-bar"></i></a></li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section id="welcome-section">
+      <div class="container">
+        <h1>Welcome to Guess What</h1>
+        <div class="card">
+          <div class="card-header">
+            <h2>Start a New Game</h2>
+          </div>
+          <div class="card-body">
+            <form id="start-form">
+              <div class="form-group">
+                <label for="name">Enter your Name:</label>
+                <input type="text" id="name" name="name" required>
+              </div>
+              <div class="form-group">
+                <label for="theme">Choose a Theme:</label>
+                <select id="theme" name="theme">
+                  <option value="sports">Sports</option>
+                  <option value="computers">Computers</option>
+                  <option value="cities">Cities</option>
+                  <option value="food">Food</option>
+                  <option value="food">Fruits</option>
+                </select>
+              </div>
+              <input type="submit" value="Start">
+            </form>
+          </div>
+        </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-container">
+      <p>Copyright &copy; Guess What
+        <script>document.write(new Date().getFullYear());</script>
+      </p>
+    </div>
+  </footer>
+
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="script.js"></script>
+</body>
+
+</html>
