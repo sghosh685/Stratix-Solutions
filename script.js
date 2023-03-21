@@ -22,8 +22,9 @@ $(document).ready(function() {
       marginTop: '10%',
       opacity: 0
     }, 500, function() {
+      var selectedOpt= document.getElementById('theme').value;
       // Redirect to the game page after the animation is complete
-      window.location.href = 'game.html';
+      window.location.href = 'game.html?'+selectedOpt;
     });
   });
 });

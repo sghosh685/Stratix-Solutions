@@ -1,122 +1,181 @@
-const words = require('./words');
 
-// Select a random word from the words list
-function selectWord() {
-  const index = Math.floor(Math.random() * words.length);
-  return words[index];
+var category= location.search.substring(1);
+var WORDS= words[category];
+var totalGuesses = 6;
+let guessesLeft = totalGuesses;
+let current = [];
+let next = 0;
+let correctWord = WORDS[Math.floor(Math.random() * WORDS.length)];
+var hint=3;
+
+console.log(correctWord);
+
+function fillAttemptsLeft(){
+  document.getElementById('attempts').innerHTML=guessesLeft;
 }
 
-let currentWord;
-let guessedLetters = [];
-let remainingAttempts;
-let score = 0;
-let hintLimit = 3;
+function gameGrid() {
+  let board = document.getElementById("game-board");
 
-// Get DOM elements
-const emptyBoxes = document.getElementById('empty-boxes');
-const qwertyContainer = document.getElementById('qwerty-container');
-const scoreDisplay = document.getElementById('score');
-const attemptsDisplay = document.getElementById('attempts');
-const hintLimitDisplay = document.getElementById('current-hint-limit');
-const hintButton = document.getElementById('hint');
-const resetButton = document.getElementById('reset-button');
-const incorrectLettersDisplay = document.getElementById('incorrect-letters');
+  for (let i = 0; i < totalGuesses; i++) {
+    let row = document.createElement("div");
+    row.className = "letter-row";
 
-// Create QWERTY keyboard
-const qwerty = 'qwertyuiopasdfghjklzxcvbnm'.split('');
-qwerty.forEach((letter) => {
-  const button = document.createElement('button');
-  button.classList.add('key');
-  button.innerText = letter;
-  button.disabled = true;
-  qwertyContainer.appendChild(button);
-});
+    for (let j = 0; j < correctWord.length; j++) {
+      let box = document.createElement("div");
+      box.className = "letter-box";
+      row.appendChild(box);
+    }
 
-// Add event listener to QWERTY keyboard
-qwertyContainer.addEventListener('click', (event) => {
-  if (event.target.classList.contains('key')) {
-    const letter = event.target.innerText;
-    event.target.disabled = true;
-    event.target.classList.add('used');
-    checkLetter(letter);
+    board.appendChild(row);
   }
-});
+}
 
-// Add event listener to Hint button
-hintButton.addEventListener('click', () => {
-  if (hintLimit > 0) {
-    const hiddenLetters = currentWord.split('').filter((letter) => {
-      return !guessedLetters.includes(letter);
-    });
-    const letterToShow = hiddenLetters[Math.floor(Math.random() * hiddenLetters.length)];
-    guessedLetters.push(letterToShow);
-    const boxes = emptyBoxes.children;
-    for (let i = 0; i < boxes.length; i++) {
-      if (boxes[i].innerText === letterToShow) {
-        boxes[i].classList.remove('hidden');
+function removeLetter() {
+  let row = document.getElementsByClassName("letter-row")[6 - guessesLeft];
+  let box = row.children[next - 1];
+  box.textContent = "";
+  box.classList.remove("filled-box");
+  current.pop();
+  next -= 1;
+}
+
+var rightHintArray = new Array(correctWord.length).fill(null);
+
+function CheckInput() {
+  let row = document.getElementsByClassName("letter-row")[6 - guessesLeft];
+  let guessString = "";
+  let rightGuess = Array.from(correctWord);
+
+  for (var val of current) {
+    guessString += val;
+  }
+
+  if (guessString.length != correctWord.length) {
+    alert("Not enough letters!");
+    return;
+  }
+
+  var letterColor = []
+  for (let i = 0; i < correctWord.length; i++) {
+    letterColor.push('gray');
+  }
+  
+
+  for (let i = 0; i < correctWord.length; i++) {
+    if (rightGuess[i] == current[i]) {
+      letterColor[i] = "green";
+      rightGuess[i] = "#";
+      rightHintArray[i]=current[i];
+    }
+  }
+
+
+  for (let i = 0; i < correctWord.length; i++) {
+    if (letterColor[i] == "green") continue;
+
+    for (let j = 0; j < correctWord.length; j++) {
+      if (rightGuess[j] == current[i]) {
+        letterColor[i] = "yellow";
+        rightGuess[j] = "#";
       }
     }
-    hintLimit--;
-    hintLimitDisplay.innerText = hintLimit;
-    attemptsDisplay.innerText = remainingAttempts--;
-    updateScore();
-    checkGameOver();
   }
-});
 
-// Add event listener to Reset button
-resetButton.addEventListener('click', () => {
-  resetGame();
-});
+  for (let i = 0; i < correctWord.length; i++) {
+    let box = row.children[i];
+    box.style.backgroundColor = letterColor[i];
+  }
 
-// Check if letter is in the word
-function checkLetter(letter) {
-  if (currentWord.includes(letter)) {
-    guessedLetters.push(letter);
-    const boxes = emptyBoxes.children;
-    for (let i = 0; i < boxes.length; i++) {
-      if (boxes[i].innerText === letter) {
-        boxes[i].classList.remove('hidden');
-      }
-    }
-    updateScore();
-    checkGameOver();
+  if (guessString === correctWord) {
+    document.getElementById('score').innerHTML=guessesLeft*100
+    alert("You guessed right! Game over!");
+    guessesLeft = 0;
+    return;
   } else {
-    incorrectLettersDisplay.innerText += letter + ' ';
-    attemptsDisplay.innerText = remainingAttempts--;
-    checkGameOver();
+    guessesLeft -= 1;
+    current = [];
+    next = 0;
+    fillAttemptsLeft();
+    if (guessesLeft === 0) {
+      alert("You've run out of guesses! Game over!");
+      alert(`The right word was: "${correctWord}"`);
+    }
   }
 }
 
-// Update the score display
-function updateScore() {
-  const boxes = emptyBoxes.children;
-  let allLettersGuessed = true;
-  for (let i = 0; i < boxes.length; i++) {
-    if (boxes[i].classList.contains('hidden')) {
-      allLettersGuessed = false;
-    }
+function addLetterToBox(pressedKey) {
+  if (next === correctWord.length) {
+    return;
   }
-  if (allLettersGuessed) {
-    scoreDisplay.innerText = ++score;
-  }
+
+  pressedKey = pressedKey.toLowerCase();
+
+  let row = document.getElementsByClassName("letter-row")[6 - guessesLeft];
+  let box = row.children[next];
+  box.textContent = pressedKey;
+  box.classList.add("filled-box");
+  current.push(pressedKey);
+  next += 1;
 }
 
-// Check if game is over
-function checkGameOver() {
-  if (remainingAttempts === 0) {
-    endGame(false);
-  } else {
-    const boxes = emptyBoxes.children;
-    let allLettersGuessed = true;
-    for (let i = 0; i < boxes.length; i++) {
-      if (boxes[i].classList.contains("empty-box")) {
-        allLettersGuessed = false;
-        break;
-      }
+function fillInput(key)
+{
+  let selectKey = String(key);
+  if (selectKey === "Backspace") {
+    if(next !== 0){
+    removeLetter();
     }
-    if (allLettersGuessed) {
-      endGame(true);
-    }
+    return;
   }
+
+  if (selectKey === "Enter") {
+    CheckInput();
+    return;
+  } 
+
+  addLetterToBox(selectKey);
 }
+
+document.getElementById("reset-button").addEventListener("click", (e) => {
+  window.location.reload();
+});
+
+document.getElementById("keyboard-cont").addEventListener("click", (e) => {
+  var target = e.target;
+
+  if (!target.classList.contains("keyboard-button")) {
+    return;
+  }
+  let key = target.textContent;
+
+  if (key === "Del") {
+    key = "Backspace";
+  }
+
+  fillInput(key);
+});
+
+document.getElementById("hint").addEventListener("click", (e) => {
+  if(hint!=0){
+   var NotFilledIndexes = rightHintArray.map((x,i)=> {
+    if(!x){
+      return i;
+    }
+   }).filter(x=>x);
+
+  let letterPosition = Math.floor(Math.random()*NotFilledIndexes.length)
+  let letter=correctWord[NotFilledIndexes[letterPosition]]
+  alert(`${letter} comes at ${NotFilledIndexes[letterPosition]+1} position`)
+  hint-=1;
+  document.getElementById('current-hint-limit').innerHTML=hint;  
+  }
+  else{
+    alert('You are out of hints');
+  }
+});
+document.getElementById("quit").addEventListener("click", (e) => {
+  window.location.href = "./index.html";
+});
+gameGrid();
+
