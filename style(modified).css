@@ -48,20 +48,34 @@ header {
 }
 
 .about, .rules, .gameStats, .settings {
-display: none;
-position: fixed;
-z-index: 1;
-padding-top: 100px;
-left: 0;
-top: 0;
-width: 100%;
-height: 100%;
-overflow: auto;
-background-color: rgb(0,0,0);
-background-color: rgba(0,0,0,0.4);
+    display: none;
+    position: fixed;
+    z-index: 1;
+    padding-top: 100px;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(0,0,0);
+    background-color: rgba(0,0,0,0.4);
 }
 
-.about-content, .rules-content, .gameStats-content, .settings-content {
+.welcome {
+    display: block;
+    position: fixed;
+    z-index: 1;
+    padding-top: 100px;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(0,0,0);
+    background-color: rgba(0,0,0,0.4); 
+}
+
+.about-content, .rules-content, .gameStats-content, .settings-content, .welcome-content {
     background-color: #fefefe;
     margin: auto;
     padding: 20px;
@@ -73,21 +87,21 @@ background-color: rgba(0,0,0,0.4);
 text-align: left;
 }
 
-.close, .close1, .close2, .close3 {
+.close, .close1, .close2, .close3, .close4 {
     color: #aaaaaa;
     float: right;
     font-size: 28px;
     font-weight: bold;
   }
   
-  .close, .close1, .close2, .close3:hover,
-  .close, .close1, .close2, .close3:focus {
+  .close, .close1, .close2, .close3, .close4:hover,
+  .close, .close1, .close2, .close3, .close4:focus {
     color: #000;
     text-decoration: none;
     cursor: pointer;
   }
 
-  .about-content, .rules-content, .gameStats-content, .settings-content {
+  .about-content, .rules-content, .gameStats-content, .settings-content, .welcome-content {
     text-align: center;
     font-family: Arial, Helvetica, sans-serif;
   }
