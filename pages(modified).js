@@ -95,3 +95,18 @@ window.onclick = function(event) {
     settings.style.display = "none";
   }
 }
+
+// "WELCOME" MODAL /////////////////////////////////////////////////////////////////////////////
+
+var settings = document.getElementById("myWelcome");
+var span4 = document.getElementsByClassName("close4")[0];
+
+span4.onclick = function() {
+  settings.style.display = "none";
+}
+
+window.onclick = function(event) {
+  if (event.target == settings) {
+    settings.style.display = "none";
+  }
+}
