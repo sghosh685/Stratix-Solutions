@@ -1,74 +1,189 @@
 <!DOCTYPE html>
-<html>
-
+<html lang="en">
 <head>
-  <title>Guess What - Home Page</title>
-  <link rel="stylesheet" href="style.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guess What?</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Gochi+Hand&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@48,400,0,0" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+    <link rel="stylesheet" href="style.css">
 
 </head>
 
 <body>
-  <header>
-    <nav>
-      <div class="menu-icon">
-        <i class="fa fa-bars"></i>
-      </div>
-      <div class="logo">
-        <a href="#">Guess What</a>
-      </div>
-      <div class="menu">
-        <ul>
-          <li><a href="about.html">About <i class="fa fa-info-circle"></i></a></li>
-          <li><a href="rules.html">Rules <i class="fas fa-book"></i></a></li>
-          <li><a href="settings.html">Settings <i class="fas fa-cog"></i></a></li>
-          <li><a href="#">Game Stats <i class="fas fa-chart-bar"></i></a></li>
-        </ul>
-      </div>
-    </nav>
-  </header>
 
-  <main>
-    <section id="welcome-section">
-      <div class="container">
-        <h1>Welcome to Guess What</h1>
-        <div class="card">
-          <div class="card-header">
-            <h2>Start a New Game</h2>
-          </div>
-          <div class="card-body">
-            <form id="start-form">
-              <div class="form-group">
-                <label for="name">Enter your Name:</label>
-                <input type="text" id="name" name="name" required>
-              </div>
-              <div class="form-group">
-                <label for="theme">Choose a Theme:</label>
-                <select id="theme" name="theme">
-                  <option value="sports">Sports</option>
-                  <option value="computers">Computers</option>
-                  <option value="cities">Cities</option>
-                  <option value="food">Food</option>
-                  <option value="food">Fruits</option>
-                </select>
-              </div>
-              <input type="submit" value="Start">
-            </form>
-          </div>
+    <header class="siteHeader">
+        <div class="menuLeft">
+            <i class="material-symbols-rounded" id="btnMenu">menu</i>
         </div>
-    </section>
-  </main>
+        <div class="title">GUESS WHAT?</div>
+        <div class="menuRight">
+            <i class="material-symbols-outlined" id="btnHelp">help</i>
+            <i class="material-symbols-rounded" id="btnLeaderboard">leaderboard</i>
+            <i class="material-symbols-rounded" id="btnSettings">settings</i>
+        </div>
+    </header>
 
-  <footer>
-    <div class="footer-container">
-      <p>Copyright &copy; Guess What
-        <script>document.write(new Date().getFullYear());</script>
-      </p>
+    <br>
+
+
+<!--PAGES----------------------------------------------------------------------------------------------------------------------------->
+
+<div id="myWelcome" class="welcome">
+    <!-- Welcome content -->
+<!--
+    <div class="welcome-content">
+        <span class="close">&times;</span>
+        <h2 class="title">GUESS WHAT?</h2>
+            <p>
+            </p>
     </div>
-  </footer>
+</div>
+-->
 
-  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-  <script src="script.js"></script>
+     <div id="myAbout" class="about">
+        <!-- About content -->
+        <div class="about-content">
+            <span class="close">&times;</span>
+            <h2>ABOUT</h2>
+            <p>Guess What is a fun and challenging word-guessing game that can be played by anyone. The game is available in
+            multiple themes, such as sports, computers, cities, and food, and allows players to test their knowledge in
+            various categories.</p>
+            <p>This game was created by a team of developers with a passion for creating fun and engaging games. Our goal was to
+            create a game that is both challenging and educational, and we believe that we have achieved that with Guess What.
+            </p>  
+        </div>
+      </div>
+
+
+      <div id="myRules" class="rules">
+        <!-- Rules content -->
+        <div class="rules-content">
+            <span class="close">&times;</span>
+            <h1>RULES</h1>
+            <p>The goal of the game is to guess the hidden word before running out of attempts. Each game consists of a randomly chosen word from a chosen theme, and players have five attempts to guess the word.
+            If a player guesses a letter that is not in the word, they lose an attempt. If they use a hint, they also lose an attempt. However, if a player guesses a correct letter, they receive a score and continue guessing.
+            If a player guesses the word correctly, they earn five bonus points. The player with the highest score after a set number of rounds wins the game.
+            </p>
+        </div>
+      
+      </div>
+
+
+      <div id="myGameStats" class="gameStats">
+
+        <!-- Game Stats content -->
+        <div class="gameStats-content">
+          <span class="close">&times;</span>
+          <h1>GAME STATS</h1>
+          <p>This is where you will find the game stats</p>
+        </div>
+      
+      </div>
+
+
+      <div id="mySettings" class="settings">
+
+        <!-- Settings content -->
+        <div class="settings-content">
+          <span class="close">&times;</span>
+          <h1>SETTINGS</h1>
+          <p>This is where you will find the settings</p>
+        </div>
+      
+      </div>
+
+
+    <!--Game---------------------------------------------------------------------------------------------------------------------------->
+
+    <section class="siteContent">
+        <div class="game-container">
+        <div class="indicator">
+        <!-- Attempts -->
+        <div class="attempts-container">   
+            <div class="attempts-indicator">
+                <span id="attempts">6</span> attempts left
+            </div>
+        </div>
+
+
+        <!-- Score -->
+        <div class="score-container">   
+            <div class="score-indicator">
+                Score: <span id="score">00000</span>
+            </div>
+        </div>
+        </div>
+            
+        <!-- Tiles -->
+        <div id="game-board">
+
+        </div>
+
+        <!-- Letters Clicked -->
+    <div class="wrapper">
+
+        <div class="clicked-container">   
+            Incorrect Letters
+            <div class="clicked-box">
+                <div class="incorrect-box">
+                    <span id="incorrect-values"></span>
+                </div>
+            </div>
+        </div>
+     
+        <!-- Keyboard -->
+        <div class="keyboard-container"> 
+            <div class="keyboard-box">
+            <div class="column">
+            
+            </div>
+            </div>
+        </div>
+        
+        <!-- Hint Button -->
+            <div class="hint-container"> 
+                <div class="hint-text">
+                    <span id="current-hint-limit">3</span> hint left
+
+                    <div class="column">
+                    <button onclick="hints()">HINT</button>
+                    
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <div id="myModal" class="modal">
+
+        <!-- Modal content -->
+        <div class="modal-content"> 
+          <h2 id="model-header"></h2>
+          <p id="model-text"></p>
+        </div>
+      
+      </div>
+<br>
+    </section>
+
+
+    <!-- Footer -->
+     <footer>
+        <br>
+         &#169;2023 Stratix Solutions | All Rights Reserved 
+     </footer>
+     
+ <script src="words.js"></script>
+ <script src="pages.js"></script>
+ <script src="app.js"></script>
+ 
+
 </body>
 
 </html>
