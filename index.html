@@ -43,10 +43,9 @@
                     If a player guesses a letter that is not in the word, they lose an attempt. If they use a hint, they also lose an attempt. However, if a player guesses a correct letter, they receive a score and continue guessing.
                     If a player guesses the word correctly, they earn five bonus points. The player with the highest score after a set number of rounds wins the game.            
                 </p>
-               <form>
                     Name:<input id="playerName" type="text">
                     <br><br>
-                    <select id="theme" onchange="setTheme()">
+                    <select id="theme">
                         <option selected disabled>Themes</option>
                         <option value="sports">Sports</option>
                         <option value="computers">Computers</option>
@@ -56,9 +55,9 @@
                     </select>
                     <br><br>
                     <div class="playBtn">
-                        <button onclick="returnName()">PLAY</button>
+                        <button onclick="setTheme()">PLAY</button>
                     </div>
-                </form>
+                
 
         </div>
     </div>

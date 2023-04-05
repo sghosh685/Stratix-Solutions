@@ -1,21 +1,25 @@
 //Theme Selector//////////////////////////////////////////////////////////////////
 
-//var category;
-//let correctWord;
-//var WORDS;
+
+var category="";
+var playerName;
+var WORDS ;
+var correctWord;
+var rightHintArray;
 // This function selects the theme of the game from the dropdown menu
-/*function setTheme() {
+function setTheme() {
 
   category = document.getElementById('theme').value;
   WORDS = words[category];
   correctWord = WORDS[Math.floor(Math.random() * WORDS.length)];
-
+  rightHintArray = new Array(correctWord.length).fill(null);
+  gameGrid();
+  console.log(correctWord);
+  playerName=document.getElementById('playerName').value;
+ span4.click();
 }
-*/
 
-var category = "computers"
-var WORDS = words[category];
-let correctWord = WORDS[Math.floor(Math.random() * WORDS.length)];
+
 
 var totalGuesses =5;
 var attemptsLeft=totalGuesses;
@@ -36,7 +40,6 @@ const keys = [
 ]
 
 const handleClick = (key) => {
-    console.log('clicked', key.target.textContent)
     var target = key.target;
     let pressedKey = target.textContent;
     fillInput(pressedKey);
@@ -51,7 +54,7 @@ keys.forEach(key => {
 })
 
 
-console.log(correctWord);
+
 
 function fillAttemptsLeft() {
   document.getElementById('attempts').innerHTML = attemptsLeft;
@@ -73,7 +76,7 @@ function gameGrid() {
     board.appendChild(row);
   }
   
-var rightHintArray = new Array(correctWord.length).fill(null);
+
 
 function openModel(heading,content){
   modal.style.display = "block";
@@ -111,7 +114,6 @@ function addLetterToBox(pressedKey) {
     for (let i = 0; i < indexes.length; i++) {
       const element = indexes[i];
       let box = row.children[element];
-      console.log(row.children[element])
       box.textContent = pressedKey;
       rightHintArray[indexes[i]]=pressedKey;
       current.push(pressedKey);
@@ -123,12 +125,6 @@ function addLetterToBox(pressedKey) {
     attemptsLeft =attemptsLeft-1
     fillAttemptsLeft();
     fillIncorrectLetters();
-
-    const keyboardInput = document.getElementById('letter-row');
-
-    document.addEventListener('keydown', (event) => {
-      console.log(event);
-    })
     
   }
  
@@ -182,4 +178,3 @@ for (var i = 0; i < b.length; i++) {
     }
   };
 
-gameGrid();
