@@ -1,11 +1,27 @@
-var category = "sports"
+//Theme Selector//////////////////////////////////////////////////////////////////
+
+//var category;
+//let correctWord;
+//var WORDS;
+// This function selects the theme of the game from the dropdown menu
+/*function setTheme() {
+
+  category = document.getElementById('theme').value;
+  WORDS = words[category];
+  correctWord = WORDS[Math.floor(Math.random() * WORDS.length)];
+
+}
+*/
+
+var category = "computers"
 var WORDS = words[category];
-var totalGuesses =6;
+let correctWord = WORDS[Math.floor(Math.random() * WORDS.length)];
+
+var totalGuesses =5;
 var attemptsLeft=totalGuesses;
 let current = [];
 let next = 0;
 var currentScore=0;
-let correctWord = WORDS[Math.floor(Math.random() * WORDS.length)];
 var hint = 3;
 var incorrectLetters=[]
 var modal = document.getElementById("myModal");
@@ -25,7 +41,6 @@ const handleClick = (key) => {
     let pressedKey = target.textContent;
     fillInput(pressedKey);
 }
-
 
 keys.forEach(key => {
     const buttonElement = document.createElement('button')
@@ -58,7 +73,7 @@ function gameGrid() {
     board.appendChild(row);
   }
   
-  var rightHintArray = new Array(correctWord.length).fill(null);
+var rightHintArray = new Array(correctWord.length).fill(null);
 
 function openModel(heading,content){
   modal.style.display = "block";
@@ -108,6 +123,12 @@ function addLetterToBox(pressedKey) {
     attemptsLeft =attemptsLeft-1
     fillAttemptsLeft();
     fillIncorrectLetters();
+
+    const keyboardInput = document.getElementById('letter-row');
+
+    document.addEventListener('keydown', (event) => {
+      console.log(event);
+    })
     
   }
  

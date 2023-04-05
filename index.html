@@ -19,7 +19,7 @@
 
     <header class="siteHeader">
         <div class="menuLeft">
-            <i class="material-symbols-rounded" id="btnMenu">menu</i>
+            <i class="material-symbols-rounded" id="btnMenu">menu</i> 
         </div>
         <div class="title">GUESS WHAT?</div>
         <div class="menuRight">
@@ -31,133 +31,152 @@
 
     <br>
 
+    <!--PAGES----------------------------------------------------------------------------------------------------------------------------->
+    <div id="myWelcome" class="welcome"> 
+        <!-- Welcome content -->
+        <div class="welcome-content">
+            <span class="close4">&times;</span>
 
-<!--PAGES----------------------------------------------------------------------------------------------------------------------------->
+            <h2 class="title">GUESS WHAT?</h2>
+            <h3>How To Play</h3>
+                <p>The goal of the game is to guess the hidden word before running out of attempts. Each game consists of a randomly chosen word from a chosen theme, and players have five attempts to guess the word.
+                    If a player guesses a letter that is not in the word, they lose an attempt. If they use a hint, they also lose an attempt. However, if a player guesses a correct letter, they receive a score and continue guessing.
+                    If a player guesses the word correctly, they earn five bonus points. The player with the highest score after a set number of rounds wins the game.            
+                </p>
+               <form>
+                    Name:<input id="playerName" type="text">
+                    <br><br>
+                    <select id="theme" onchange="setTheme()">
+                        <option selected disabled>Themes</option>
+                        <option value="sports">Sports</option>
+                        <option value="computers">Computers</option>
+                        <option value="cities">Cities</option>
+                        <option value="food">Food</option>
+                        <option value="fruits">Fruits</option>
+                    </select>
+                    <br><br>
+                    <div class="playBtn">
+                        <button onclick="returnName()">PLAY</button>
+                    </div>
+                </form>
 
-<div id="myWelcome" class="welcome">
-    <!-- Welcome content -->
-<!--
-    <div class="welcome-content">
-        <span class="close">&times;</span>
-        <h2 class="title">GUESS WHAT?</h2>
-            <p>
-            </p>
+        </div>
     </div>
-</div>
--->
-
-     <div id="myAbout" class="about">
-        <!-- About content -->
-        <div class="about-content">
-            <span class="close">&times;</span>
-            <h2>ABOUT</h2>
-            <p>Guess What is a fun and challenging word-guessing game that can be played by anyone. The game is available in
-            multiple themes, such as sports, computers, cities, and food, and allows players to test their knowledge in
-            various categories.</p>
-            <p>This game was created by a team of developers with a passion for creating fun and engaging games. Our goal was to
-            create a game that is both challenging and educational, and we believe that we have achieved that with Guess What.
-            </p>  
-        </div>
-      </div>
 
 
-      <div id="myRules" class="rules">
-        <!-- Rules content -->
-        <div class="rules-content">
-            <span class="close">&times;</span>
-            <h1>RULES</h1>
-            <p>The goal of the game is to guess the hidden word before running out of attempts. Each game consists of a randomly chosen word from a chosen theme, and players have five attempts to guess the word.
-            If a player guesses a letter that is not in the word, they lose an attempt. If they use a hint, they also lose an attempt. However, if a player guesses a correct letter, they receive a score and continue guessing.
-            If a player guesses the word correctly, they earn five bonus points. The player with the highest score after a set number of rounds wins the game.
-            </p>
-        </div>
-      
-      </div>
+    <div id="myAbout" class="about">
+    <!-- About content -->
+    <div class="about-content">
+        <span class="close">&times;</span>
+        <h2>ABOUT</h2>
+        <p>Guess What is a fun and challenging word-guessing game that can be played by anyone. The game is available in
+        multiple themes, such as sports, computers, cities, and food, and allows players to test their knowledge in
+        various categories.</p>
+        <p>This game was created by a team of developers with a passion for creating fun and engaging games. Our goal was to
+        create a game that is both challenging and educational, and we believe that we have achieved that with Guess What.
+        </p>  
+    </div>
+    </div>
 
 
-      <div id="myGameStats" class="gameStats">
+    <div id="myRules" class="rules">
+    <!-- Rules content -->
+    <div class="rules-content">
+        <span class="close1">&times;</span>
+        <!-- ^^ class name was changed from "close" to "close1" here -->
+        <h1>RULES</h1>
+        <p>The goal of the game is to guess the hidden word before running out of attempts. Each game consists of a randomly chosen word from a chosen theme, and players have five attempts to guess the word.
+        If a player guesses a letter that is not in the word, they lose an attempt. If they use a hint, they also lose an attempt. However, if a player guesses a correct letter, they receive a score and continue guessing.
+        If a player guesses the word correctly, they earn five bonus points. The player with the highest score after a set number of rounds wins the game.
+        </p>
+    </div>
+    
+    </div>
 
-        <!-- Game Stats content -->
-        <div class="gameStats-content">
-          <span class="close">&times;</span>
-          <h1>GAME STATS</h1>
-          <p>This is where you will find the game stats</p>
-        </div>
-      
-      </div>
+
+    <div id="myGameStats" class="gameStats">
+
+    <!-- Game Stats content -->
+    <div class="gameStats-content">
+        <span class="close2">&times;</span>
+        <h1>GAME STATS</h1>
+        <p>This is where you will find the game stats</p>
+    </div>
+    
+    </div>
 
 
-      <div id="mySettings" class="settings">
+    <div id="mySettings" class="settings">
 
-        <!-- Settings content -->
-        <div class="settings-content">
-          <span class="close">&times;</span>
-          <h1>SETTINGS</h1>
-          <p>This is where you will find the settings</p>
-        </div>
-      
-      </div>
+    <!-- Settings content -->
+    <div class="settings-content">
+        <span class="close3">&times;</span>
+        <h1>SETTINGS</h1>
+        <p>This is where you will find the settings</p>
+    </div>
+    
+    </div>
 
 
     <!--Game---------------------------------------------------------------------------------------------------------------------------->
 
     <section class="siteContent">
-        <div class="game-container">
+    <div class="game-container">
+
         <div class="indicator">
-        <!-- Attempts -->
-        <div class="attempts-container">   
-            <div class="attempts-indicator">
-                <span id="attempts">6</span> attempts left
+            <!-- Attempts -->
+            <div class="attempts-container">   
+                <div class="attempts-indicator">
+                <span id="attempts">5</span> attempts left
+                </div>
+            </div>
+
+            <!-- Score -->
+            <div class="score-container">   
+                <div class="score-indicator">
+                    Score: <span id="score">00000</span>
+                </div>
             </div>
         </div>
-
-
-        <!-- Score -->
-        <div class="score-container">   
-            <div class="score-indicator">
-                Score: <span id="score">00000</span>
-            </div>
-        </div>
-        </div>
-            
-        <!-- Tiles -->
+    
+            <!-- Tiles -->
         <div id="game-board">
 
         </div>
 
+
         <!-- Letters Clicked -->
-    <div class="wrapper">
-
-        <div class="clicked-container">   
-            Incorrect Letters
-            <div class="clicked-box">
-                <div class="incorrect-box">
-                    <span id="incorrect-values"></span>
-                </div>
-            </div>
-        </div>
-     
-        <!-- Keyboard -->
-        <div class="keyboard-container"> 
-            <div class="keyboard-box">
-            <div class="column">
-            
-            </div>
-            </div>
-        </div>
-        
-        <!-- Hint Button -->
-            <div class="hint-container"> 
-                <div class="hint-text">
-                    <span id="current-hint-limit">3</span> hint left
-
-                    <div class="column">
-                    <button onclick="hints()">HINT</button>
-                    
+        <div class="wrapper">
+            <div class="clicked-container">   
+                Incorrect Letters
+                <div class="clicked-box">
+                    <div class="incorrect-box">
+                        <span id="incorrect-values"></span>
                     </div>
                 </div>
             </div>
-
+         
+            <!-- Keyboard -->
+            <div class="keyboard-container"> 
+                <div class="keyboard-box">
+                <div class="column">
+                
+                </div>
+                </div>
+            </div>
+            
+            <!-- Hint Button -->
+                <div class="hint-container"> 
+                    <div class="hint-text">
+                        <span id="current-hint-limit">3</span> hint left
+    
+                        <div class="column">
+                        <button onclick="hints()">HINT</button>
+                        
+                        </div>
+                    </div>
+                </div>
+    
         </div>
     </div>
     <div id="myModal" class="modal">
@@ -168,21 +187,19 @@
           <p id="model-text"></p>
         </div>
       
-      </div>
-<br>
+    </div>
+    <br>
     </section>
-
 
     <!-- Footer -->
      <footer>
         <br>
          &#169;2023 Stratix Solutions | All Rights Reserved 
      </footer>
-     
+
  <script src="words.js"></script>
  <script src="pages.js"></script>
  <script src="app.js"></script>
- 
 
 </body>
 

@@ -48,20 +48,34 @@ header {
 }
 
 .about, .rules, .gameStats, .settings {
-display: none;
-position: fixed;
-z-index: 1;
-padding-top: 100px;
-left: 0;
-top: 0;
-width: 100%;
-height: 100%;
-overflow: auto;
-background-color: rgb(0,0,0);
-background-color: rgba(0,0,0,0.4);
+    display: none;
+    position: fixed;
+    z-index: 1;
+    padding-top: 100px;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(0,0,0);
+    background-color: rgba(0,0,0,0.4);
 }
 
-.about-content, .rules-content, .gameStats-content, .settings-content {
+.welcome {
+    display: block;
+    position: fixed;
+    z-index: 1;
+    padding-top: 100px;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(0,0,0);
+    background-color: rgba(0,0,0,0.4); 
+}
+
+.about-content, .rules-content, .gameStats-content, .settings-content, .welcome-content {
     background-color: #fefefe;
     margin: auto;
     padding: 20px;
@@ -73,21 +87,21 @@ background-color: rgba(0,0,0,0.4);
 text-align: left;
 }
 
-.close {
+.close, .close1, .close2, .close3, .close4 {
     color: #aaaaaa;
     float: right;
     font-size: 28px;
     font-weight: bold;
   }
   
-  .close:hover,
-  .close:focus {
+  .close, .close1, .close2, .close3, .close4:hover,
+  .close, .close1, .close2, .close3, .close4:focus {
     color: #000;
     text-decoration: none;
     cursor: pointer;
   }
 
-  .about-content, .rules-content, .gameStats-content, .settings-content {
+  .about-content, .rules-content, .gameStats-content, .settings-content, .welcome-content {
     text-align: center;
     font-family: Arial, Helvetica, sans-serif;
   }
@@ -105,7 +119,7 @@ text-align: left;
 .game-container {
     font-family: Arial, Helvetica, sans-serif;
     box-sizing: border-box;
-    height: 70vh;
+    height: 90vh;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -124,7 +138,7 @@ text-align: left;
 
 .wrapper {
     display: grid;
-    grid-template-columns: 1fr 2fr 1fr;
+    grid-template-columns: 100%;
 
 }
 
@@ -167,7 +181,7 @@ text-align: left;
     font-size: 1.2rem;
     outline: none;
     border: 2px solid #000000;
-    word-wrap: break-word;
+    
 
 }
 
@@ -224,8 +238,7 @@ text-align: left;
 
 /*Hint Button ----------------------------------------------------------- */
 .hint-container{
-    width: 150px;
-    height: 150px;
+   
 }
 
 .hint-container button {
@@ -279,7 +292,7 @@ footer {
         order: 3;
     }
 }
-
+/*Modals----------------------------------------------------------------*/
 .modal {
     display: none; /* Hidden by default */
     position: fixed; /* Stay in place */
@@ -302,3 +315,33 @@ footer {
     border: 1px solid #888;
     width: 80%;
   }
+
+/*Dropdown------------------------------------------------------------------
+.dropdown {
+    position: relative;
+    display: inline-block;
+  }
+  
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f1f1f1;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+  }
+  
+  .dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+  }
+  
+  .dropdown-content a:hover {background-color: #ddd;}
+  
+  .dropdown:hover .dropdown-content {display: block;}
+  
+  .dropdown:hover .dropbtn {background-color: #3e8e41;}
+  
+  */
