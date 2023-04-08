@@ -9,6 +9,12 @@ header {
     height: 70px;
     background-color: whitesmoke;
 }
+.dark-mode{
+    background-color: black;
+    color: white;
+    border: white;
+}
+
 
 .siteHeader {
     flex-direction: row;
@@ -248,7 +254,7 @@ text-align: left;
     margin-right: auto;
     width: 100px;
 
-    background-color: #000000;
+    background-color: #970000;
     border-width: 5px;
 
     text-align: center; 
@@ -260,7 +266,7 @@ text-align: left;
 }
 
 .hint-container button:hover {
-    background-color: #d3d6da;
+    background-color: #ff9292;
     color: #000000;
     cursor: pointer;
 }

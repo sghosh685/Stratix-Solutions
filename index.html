@@ -35,7 +35,7 @@
     <div id="myWelcome" class="welcome"> 
         <!-- Welcome content -->
         <div class="welcome-content">
-            <span class="close4">&times;</span>
+            <!-- <span class="close4">&times;</span> -->
 
             <h2 class="title">GUESS WHAT?</h2>
             <h3>How To Play</h3>
@@ -112,7 +112,17 @@
     <div class="settings-content">
         <span class="close3">&times;</span>
         <h1>SETTINGS</h1>
-        <p>This is where you will find the settings</p>
+
+        <h2>Dark Mode</h2>
+        <label class="switch">
+            <input type="checkbox" id="darkModeToggle" onclick="darkMode()">
+        </label>
+
+        <h2>Hard Mode</h2>
+        <label class="switch">
+            <input type="checkbox" id="hardModeToggle">
+            <span class="slider"></span>
+        </label>
     </div>
     
     </div>
@@ -120,7 +130,7 @@
 
     <!--Game---------------------------------------------------------------------------------------------------------------------------->
 
-    <section class="siteContent">
+    <section class="siteContent" id="site-content">
     <div class="game-container">
 
         <div class="indicator">
@@ -150,7 +160,7 @@
             <div class="clicked-container">   
                 Incorrect Letters
                 <div class="clicked-box">
-                    <div class="incorrect-box">
+                    <div class="incorrect-box" id="clicked-container">
                         <span id="incorrect-values"></span>
                     </div>
                 </div>
@@ -171,7 +181,7 @@
                         <span id="current-hint-limit">3</span> hint left
     
                         <div class="column">
-                        <button onclick="hints()">HINT</button>
+                        <button id="hintBtn" onclick="hints()">HINT</button>
                         
                         </div>
                     </div>
