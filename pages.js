@@ -87,6 +87,7 @@ function darkMode(){
   gamePage.classList.toggle("dark-mode");
   
   document.getElementById("mySettings").style.color= "black";
+  document.getElementById("myAbout").style.color= "black";
   document.getElementById("myRules").style.color= "black";
   document.getElementById("myGameStats").style.color= "black";
   document.getElementById("gameOverModal").style.color= "black";
