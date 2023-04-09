@@ -1,3 +1,10 @@
+//Player Name ///////////////////////////////////////////////////////////////////////////
+//This function get player name from input box on HOME page and stores the user name in a variable called playerName
+var playerName;
+function returnName() {
+  playerName = document.getElementById('playerName').value;
+}
+
 //Theme Selector//////////////////////////////////////////////////////////////////
 
 
@@ -15,8 +22,17 @@ function setTheme() {
   rightHintArray = new Array(correctWord.length).fill(null);
   gameGrid();
   console.log(correctWord);
+  updateWinStreak();
+  updateHighScore();
+  updateGamesPlayed();
   playerName=document.getElementById('playerName').value;
-  document.getElementById("myWelcome").style.display = "none"; //welcome modal does not close until theme is selected
+  document.getElementById("myWelcome").style.display = "none"; //welcome modal does not until theme is selected
+
+  //initialize player name display upon clicking "PLAY"
+  document.getElementById("username").innerHTML = playerName;
+  if (playerName===undefined || playerName===""){
+    document.getElementById("username").innerHTML = "Player";
+  }
 }
 
 function restart(){
@@ -30,13 +46,18 @@ function restart(){
   modal.style.display = "none";
 }
 
+///INITIALIZATION
 var totalGuesses =5;
 var attemptsLeft=totalGuesses;
 let current = [];
 let next = 0;
 var currentScore=0;
 var hint = 3;
+var highScore = 0;
+var winStreak = 0;
+var gamesPlayed = 0;
 var incorrectLetters=[]
+var hintsModal = document.getElementById("hintsModal");
 var modal = document.getElementById("gameOverModal");
 var gameOver=false;
 const  tileDisplay = document.querySelector('.tile-container');
@@ -64,12 +85,22 @@ keys.forEach(key => {
 
 
 
-
 function fillAttemptsLeft() {
   document.getElementById('attempts').innerHTML = attemptsLeft;
 }
 function fillIncorrectLetters() {
   document.getElementById('incorrect-values').innerHTML = incorrectLetters;
+}
+
+//Game Stats updates
+function updateWinStreak(){
+  document.getElementById("winStreak").innerHTML = winStreak;
+}
+function updateHighScore(){
+  document.getElementById("highestScore").innerHTML = highScore;
+}
+function updateGamesPlayed(){
+  document.getElementById("gamesPlayed").innerHTML = gamesPlayed;
 }
 
 function gameGrid() {
@@ -85,23 +116,28 @@ function gameGrid() {
     board.appendChild(row);
     if (gameOver == true){
       //clear the boxes from the screen
-      
+      board.remove();
     }
   }
   
 
 
-function openModel(heading,content){ //makes the game over modal appear
+function openModal(heading,content){ //makes the game over modal appear
   modal.style.display = "block";
   document.getElementById('gameOver-header').innerHTML=heading
   document.getElementById('gameOver-text').innerHTML=content
 }
 
-// window.onclick = function(event) {
-//   if (event.target == modal) {
-//     modal.style.display = "none";
-//   }
-// }
+function openHintsModal(hintHeading,hintContent){ //makes the hint modal appear
+  hintsModal.style.display = "block";
+  document.getElementById('hints-header').innerHTML=hintHeading
+  document.getElementById('hints-text').innerHTML=hintContent
+}
+window.onclick = function(event) {
+  if (event.target == hintsModal) {
+    hintsModal.style.display = "none";
+  }
+}
 
 function addLetterToBox(pressedKey) {
   if (gameOver === true || incorrectLetters.length===totalGuesses  ) {
@@ -142,21 +178,33 @@ for (var i = 0; i < b.length; i++) {
   textContents=textContents+b[i].textContent;
 }
   if (textContents === correctWord){
+    //Win Streak updates
+    winStreak = winStreak + 1;
+    updateWinStreak();
 
     document.getElementById('score').innerHTML=currentScore+5;
-    openModel('Congratulations', 'You guessed word right! Game over!')
+    openModal('Congratulations', 'You guessed word right! Game over!')
+    
+    //high score updates
+    if (currentScore > highScore){ 
+      highScore = currentScore;
+      updateHighScore();
+    }
+    gamesPlayed = gamesPlayed +1; //update games played
     gameOver=true;
     console.log("game over: " + gameOver);
   }
   else if(attemptsLeft === 0){
-    openModel('Sorry', 'You couldn\'t guess right word! Game over!')
+    winStreak = 0; //win streak is reset to 0 if word not guessed correctly
+    updateWinStreak();
+    gamesPlayed = gamesPlayed +1; //update games played
+    openModal('Sorry', 'You couldn\'t guess right word! Game over!')
     gameOver=true;
     console.log("game over: " + gameOver);
   }else{
     return;
   }
 }
-
 
   function fillInput(pressedKey) {
     let selectKey = String(pressedKey);
@@ -173,17 +221,20 @@ for (var i = 0; i < b.length; i++) {
   
       let letterPosition = Math.floor(Math.random() * NotFilledIndexes.length)
       let letter = correctWord[NotFilledIndexes[letterPosition]]
-      openModel('Hint',`letter ${letter.toUpperCase()}`)
+     openHintsModal('Hint',`letter ${letter.toUpperCase()}`)
       hint -= 1;
       document.getElementById('current-hint-limit').innerHTML = hint;
       attemptsLeft =attemptsLeft-1;
       fillAttemptsLeft();
     }
     else if(attemptsLeft == 0){
-      openModel('Sorry', 'You couldn\'t guess right word! Game over!')
+     openHintsModal('Sorry', 'You couldn\'t guess right word! Game over!')
     }
     else{
-      openModel('Sorry','You are out of hints')
+     openHintsModal('Sorry','You are out of hints')
     }
   };
 
+function hardMode(){
+  WORDS = words1[category];
+}

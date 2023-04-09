@@ -299,7 +299,7 @@ footer {
     }
 }
 /*Modals----------------------------------------------------------------*/
-.modal {
+.modal, .hints {
     display: none; /* Hidden by default */
     position: fixed; /* Stay in place */
     z-index: 1; /* Sit on top */
@@ -314,7 +314,7 @@ footer {
   }
   
   /* Modal Content */
-  .gameOver-content {
+  .gameOver-content, .hints-content {
     background-color: #fefefe;
     margin: auto;
     padding: 20px;

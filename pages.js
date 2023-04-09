@@ -1,11 +1,4 @@
-//Player Name ///////////////////////////////////////////////////////////////////////////
 
-//This function get player name from input box on HOME page and stores the user name in a variable called playerName
-var playerName;
-
-function returnName() {
-  playerName = document.getElementById('playerName').value;
-}
 
 // "WELCOME" MODAL /////////////////////////////////////////////////////////////////////////////
 //Welcome modal does not need to be closed manually. It will close once the player chooses a theme and hits "PLAY"

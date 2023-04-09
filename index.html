@@ -98,8 +98,10 @@
     <!-- Game Stats content -->
     <div class="gameStats-content">
         <span class="close2">&times;</span>
-        <h1>GAME STATS</h1>
-        <p>This is where you will find the game stats</p>
+        <h1><span id="username"></span>'s Game Stats</h1>
+        <p>Highest Score: <span id="highestScore"></span></p> 
+        <p>Win Streak: <span id="winStreak"></span></p> 
+        <p>Total Games Played: <span id="gamesPlayed"></span></p> 
         
     </div>
     
@@ -120,9 +122,18 @@
 
         <h2>Hard Mode</h2>
         <label class="switch">
-            <input type="checkbox" id="hardModeToggle">
+            <input type="checkbox" id="hardModeToggle" onclick="hardMode()">
             <span class="slider"></span>
         </label>
+
+        <H2>Feedback</H2>
+        <p>If you have any feedback or questions, please send us an email at <a href="mailto:saikat20@my.yorku.ca">saikat20@my.yorku.ca</a> </p>
+
+        <h2>FAQ</h2>
+        <dl>
+            <dt>Q: How do I play the game?</dt>
+            <dd>A: To play the game, simply select a theme from the dropdown menu and click the "PLAY" button.</dd>
+        </dl>
     </div>
     
     </div>
@@ -190,8 +201,14 @@
         </div>
     </div>
 
-    <div id="gameOverModal" class="modal">
+    <div id="hintsModal" class="hints">
+        <div class="hints-content">
+            <h2 id="hints-header"></h2>
+            <p id="hints-text"></p>
+        </div>
+    </div>
 
+    <div id="gameOverModal" class="modal">
         <!-- "Game Over" Modal content -->
         <div class="gameOver-content"> 
           <h2 id="gameOver-header"></h2>
