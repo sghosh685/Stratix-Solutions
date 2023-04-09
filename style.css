@@ -9,12 +9,12 @@ header {
     height: 70px;
     background-color: whitesmoke;
 }
+
 .dark-mode{
     background-color: black;
     color: white;
-    border: white;
+    border-color: white;
 }
-
 
 .siteHeader {
     flex-direction: row;
@@ -254,7 +254,7 @@ text-align: left;
     margin-right: auto;
     width: 100px;
 
-    background-color: #970000;
+    background-color: #000000;
     border-width: 5px;
 
     text-align: center; 
@@ -266,7 +266,7 @@ text-align: left;
 }
 
 .hint-container button:hover {
-    background-color: #ff9292;
+    background-color: #d3d6da;
     color: #000000;
     cursor: pointer;
 }
@@ -299,7 +299,7 @@ footer {
     }
 }
 /*Modals----------------------------------------------------------------*/
-.modal, .hints {
+.modal {
     display: none; /* Hidden by default */
     position: fixed; /* Stay in place */
     z-index: 1; /* Sit on top */
@@ -314,14 +314,22 @@ footer {
   }
   
   /* Modal Content */
-  .gameOver-content, .hints-content {
+  .gameOver-content {
     background-color: #fefefe;
     margin: auto;
     padding: 20px;
     border: 1px solid #888;
     width: 80%;
   }
+/*HINTS*/
 
+.hint-content {
+    background-color: #fefefe;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+  }
 /*Dropdown------------------------------------------------------------------
 .dropdown {
     position: relative;

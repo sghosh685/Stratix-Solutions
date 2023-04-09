@@ -64,7 +64,7 @@ function restart(){
   console.log("GAME RESTARTED");
   modal.style.display = "none"; //close game over modal
   document.getElementById("themeDisplay").innerHTML = String([category]);//display theme
-  
+
   //enable all keys again
 
   updateWinStreak();
@@ -190,6 +190,7 @@ function addLetterToBox(pressedKey) {
   pressedKey = pressedKey.toLowerCase();
   let row = document.getElementsByClassName("letter-row")[0];
   let indexes = [];
+
   for (var i = 0; i < correctWord.length; i++) {
     if (correctWord.toLowerCase()[i] === pressedKey) {
       indexes.push(i);
@@ -199,15 +200,15 @@ function addLetterToBox(pressedKey) {
       let btn = document.getElementById(pressedKey.toUpperCase())
       btn.addEventListener('click', () => {
         btn.disabled = true; //disable correct key after clicking once to avoid adding more than 1 score
-        console.log(btn.id);
+        btn.style.backgroundColor = "grey"; //change disabled key's color
+        console.log(btn.id + " has already been guessed");
       })
-
-      if (gameOver==true){
-        gameOver = false;
+      if (gameOver===true){
         btn.disabled = false;
+          btn.style.backgroundColor = "#d3d6da"; //change disabled key's color
         console.log("All keys should be enabled now");
       }
-    } 
+    }
   }
   if (indexes.length > 0) {
     for (let i = 0; i < indexes.length; i++) {
@@ -228,7 +229,6 @@ function addLetterToBox(pressedKey) {
     fillIncorrectLetters();
     
   }
- 
 
   var b =row.getElementsByTagName('div');
   var textContents = "";
@@ -236,27 +236,27 @@ for (var i = 0; i < b.length; i++) {
   textContents=textContents+b[i].textContent;
 }
   if (textContents === correctWord){ //if payer guesses correct word
-    winStreak = winStreak + 1;//Win Streak updates
-
     currentScore=currentScore+5; //add 5 more points for guessing correctly
     openModal('Congratulations', 'You guessed word right! Game over!');
-    
+
+    winStreak = winStreak + 1;//Win Streak updates
     gamesPlayed = gamesPlayed +1; //update games played
     gamesWon = gamesWon +1; //update games won
-    gameOver=true;
-    console.log("game over: " + gameOver);
-
     //high score updates
     if (currentScore > highScore){ 
       highScore = currentScore;
       console.log("New high score! " + currentScore);
     }
     document.getElementById('score').innerHTML = currentScore;//update the score display
+
+    gameOver=true;
+    console.log("game over: " + gameOver);
   }
-  else if(attemptsLeft === 0){ //if player doesn't guess the word
+  else if((attemptsLeft === 0) && (textContents !== correctWord)){ //if player doesn't guess the word after using up all attempts
     winStreak = 0; //win streak is reset to 0 if word not guessed correctly
     updateWinStreak();
     gamesPlayed = gamesPlayed +1; //update games played
+    
     openModal('Sorry', 'You couldn\'t guess right word! Game over!')
     gameOver=true;
     console.log("game over: " + gameOver);
@@ -286,7 +286,7 @@ for (var i = 0; i < b.length; i++) {
       attemptsLeft =attemptsLeft-1;
       fillAttemptsLeft();
     }
-    else if(attemptsLeft == 0){
+    else if(attemptsLeft === 0){
      openHintsModal('Sorry', 'You couldn\'t guess right word! Game over!')
     }
     else{
