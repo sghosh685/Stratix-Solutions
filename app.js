@@ -46,7 +46,7 @@ function restart(){
   //console.log("inside restart")
   console.log(WORDS)
   attemptsLeft=5; //A.K.A "totalWrongGuessesAllowed" on saikat's code
-  //currentScore = 0;
+  currentScore = 0;
   correctWord = WORDS[Math.floor(Math.random() * WORDS.length)]; //select a new random word
   console.log(correctWord);
   incorrectLetters = [];
@@ -61,6 +61,8 @@ function restart(){
   gameGrid(); //game grid already does this part ^^
   console.log("GAME RESTARTED");
   modal.style.display = "none"; //close game over modal
+
+  //enable all keys again
 
   updateWinStreak();
   updateHighScore();
@@ -196,7 +198,12 @@ function addLetterToBox(pressedKey) {
         btn.disabled = true; //disable correct key after clicking once to avoid adding more than 1 score
         console.log(btn.id);
       })
-      
+
+      if (gameOver==true){
+        gameOver = false;
+        btn.disabled = false;
+        console.log("All keys should be enabled now");
+      }
     } 
   }
   if (indexes.length > 0) {
@@ -226,23 +233,23 @@ for (var i = 0; i < b.length; i++) {
   textContents=textContents+b[i].textContent;
 }
   if (textContents === correctWord){ //if payer guesses correct word
-    //Win Streak updates
-    winStreak = winStreak + 1;
-    updateWinStreak();
+    winStreak = winStreak + 1;//Win Streak updates
 
-    document.getElementById('score').innerHTML=currentScore+5;
-    openModal('Congratulations', 'You guessed word right! Game over!')
+    currentScore=currentScore+5; //add 5 more points for guessing correctly
+    openModal('Congratulations', 'You guessed word right! Game over!');
     
-    //high score updates
-    if (currentScore > highScore){ 
-      highScore = currentScore;
-      updateHighScore();
-      console.log("New high score!")
-    }
     gamesPlayed = gamesPlayed +1; //update games played
     gamesWon = gamesWon +1; //update games won
     gameOver=true;
     console.log("game over: " + gameOver);
+
+    //high score updates
+    if (currentScore > highScore){ 
+      highScore = currentScore;
+      console.log(currentScore);
+      console.log("New high score!");
+    }
+    document.getElementById('score').innerHTML = currentScore;//update the score display
   }
   else if(attemptsLeft === 0){ //if player doesn't guess the word
     winStreak = 0; //win streak is reset to 0 if word not guessed correctly
