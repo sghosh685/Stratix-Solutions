@@ -90,12 +90,17 @@ function darkMode(){
   document.getElementById("myRules").style.color= "black";
   document.getElementById("myGameStats").style.color= "black";
   document.getElementById("gameOverModal").style.color= "black";
-  
+  document.getElementById("hintsModal").style.color= "black";
+
+  document.getElementById("clicked-box").style.borderColor="white"; //clicked letters box boarder
+  if (document.getElementById("darkModeToggle").checked == false){
+    document.getElementById("clicked-box").style.borderColor="black";
+  }
 }
 
 window.onload = function(){ //unchecks all toggles when the page loads
   document.getElementById("darkModeToggle").checked=false;
-  document.getElementById("hardModeToggle").checked=false;
+  //document.getElementById("hardModeToggle").checked=false;
 }
 
 

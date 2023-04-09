@@ -100,7 +100,7 @@
         <span class="close2">&times;</span>
         <h1><span id="username"></span>'s Game Stats</h1>
         <p>Highest Score: <span id="highestScore"></span></p> 
-        <p>Win Streak: <span id="winStreak"></span></p> 
+        <p>Current Win Streak: <span id="winStreak"></span></p> 
         <p>Total Games Played: <span id="gamesPlayed"></span></p> 
         
     </div>
@@ -120,11 +120,11 @@
             <input type="checkbox" id="darkModeToggle" onclick="darkMode()">
         </label>
 
-        <h2>Hard Mode</h2>
+        <!-- <h2>Hard Mode</h2>
         <label class="switch">
             <input type="checkbox" id="hardModeToggle" onclick="hardMode()">
             <span class="slider"></span>
-        </label>
+        </label> -->
 
         <H2>Feedback</H2>
         <p>If you have any feedback or questions, please send us an email at <a href="mailto:saikat20@my.yorku.ca">saikat20@my.yorku.ca</a> </p>
@@ -178,7 +178,7 @@
         <div class="wrapper">
             <div class="clicked-container">   
                 Incorrect Letters
-                <div class="clicked-box">
+                <div class="clicked-box" id="clicked-box">
                     <div class="incorrect-box" id="clicked-container">
                         <span id="incorrect-values"></span>
                     </div>

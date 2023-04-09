@@ -6,18 +6,22 @@ function returnName() {
 }
 
 //Theme Selector//////////////////////////////////////////////////////////////////
-
-
 var category="";
 var playerName;
 var WORDS ;
 var correctWord;
 var rightHintArray;
+
 // This function selects the theme of the game from the dropdown menu
 function setTheme() {
-
+  // Remove the child elements of the "game-board" element
+  const board = document.getElementById("game-board");
+  while (board.firstChild) {
+    board.removeChild(board.firstChild);
+  }
   category = document.getElementById('theme').value;
   WORDS = words[category];
+  console.log(WORDS);
   correctWord = WORDS[Math.floor(Math.random() * WORDS.length)];
   rightHintArray = new Array(correctWord.length).fill(null);
   gameGrid();
@@ -26,7 +30,7 @@ function setTheme() {
   updateHighScore();
   updateGamesPlayed();
   playerName=document.getElementById('playerName').value;
-  document.getElementById("myWelcome").style.display = "none"; //welcome modal does not until theme is selected
+  document.getElementById("myWelcome").style.display = "none"; //welcome modal should not close until theme is selected
 
   //initialize player name display upon clicking "PLAY"
   document.getElementById("username").innerHTML = playerName;
@@ -36,6 +40,8 @@ function setTheme() {
 }
 
 function restart(){
+  // Reset variables to initial values
+  //category = document.getElementById('restartTheme').value;
   attemptsLeft=5;
   current = [];
   hint = 3;
@@ -104,21 +110,31 @@ function updateGamesPlayed(){
 }
 
 function gameGrid() {
-    let board = document.getElementById("game-board");  
-    let row = document.createElement("div");
-    row.className = "letter-row";
-    row.id="letter-row";
-    for (let j = 0; j < correctWord.length; j++) { //loop creates an empty box for every letter in the chosen word
-      let box = document.createElement("div");
-      box.className = "letter-box";
-      row.appendChild(box);
-    }
-    board.appendChild(row);
-    if (gameOver == true){
-      //clear the boxes from the screen
-      board.remove();
-    }
+  let board = document.getElementById("game-board");
+  document.getElementById("attempts").textContent = 5;
+  document.getElementById("current-hint-limit").textContent = 3;
+  document.getElementById("score").textContent = 00000;
+
+  // Remove any existing child elements
+  while (board.firstChild) {
+    board.removeChild(board.firstChild);
   }
+  // Create a new row and add boxes for each letter in the correct word
+  let row = document.createElement("div");
+  row.className = "letter-row";
+  row.id = "letter-row";
+
+  for (let j = 0; j < correctWord.length; j++) {
+    let box = document.createElement("div");
+    box.className = "letter-box";
+
+    row.appendChild(box);
+  }
+  // Append the row to the board if the game is not over
+  if (!gameOver) {
+    board.appendChild(row);
+  }
+}
   
 
 
@@ -140,7 +156,7 @@ window.onclick = function(event) {
 }
 
 function addLetterToBox(pressedKey) {
-  if (gameOver === true || incorrectLetters.length===totalGuesses  ) {
+  if (gameOver === true || incorrectLetters.length===5) {
        return;
   }
   pressedKey = pressedKey.toLowerCase();
@@ -150,22 +166,31 @@ function addLetterToBox(pressedKey) {
     if (correctWord.toLowerCase()[i] === pressedKey) {
       indexes.push(i);
       currentScore += 1
-      document.getElementById('score').innerHTML=currentScore;
-    }
+      document.getElementById('score').innerHTML = currentScore;
+      let btn = document.getElementById(pressedKey.toUpperCase())
+      btn.addEventListener('click', () => {
+        
+        btn.disabled = true; //disable correct key after clicking once
+        console.log(btn.id);
+      })
+      
+    } 
   }
   if (indexes.length > 0) {
     for (let i = 0; i < indexes.length; i++) {
       const element = indexes[i];
       let box = row.children[element];
       box.textContent = pressedKey;
-      rightHintArray[indexes[i]]=pressedKey;
+      rightHintArray[indexes[i]] = pressedKey;
+
       current.push(pressedKey);
       box.classList.add("filled-box");
+
     }
-   
-  }else if(attemptsLeft > 0) {
+
+  } else if (attemptsLeft > 0) {
     incorrectLetters.push(pressedKey)
-    attemptsLeft =attemptsLeft-1
+    attemptsLeft = attemptsLeft - 1
     fillAttemptsLeft();
     fillIncorrectLetters();
     
@@ -177,7 +202,7 @@ function addLetterToBox(pressedKey) {
 for (var i = 0; i < b.length; i++) {
   textContents=textContents+b[i].textContent;
 }
-  if (textContents === correctWord){
+  if (textContents === correctWord){ //if payer guesses correct word
     //Win Streak updates
     winStreak = winStreak + 1;
     updateWinStreak();
@@ -194,7 +219,7 @@ for (var i = 0; i < b.length; i++) {
     gameOver=true;
     console.log("game over: " + gameOver);
   }
-  else if(attemptsLeft === 0){
+  else if(attemptsLeft === 0){ //if player doesn't guess the word
     winStreak = 0; //win streak is reset to 0 if word not guessed correctly
     updateWinStreak();
     gamesPlayed = gamesPlayed +1; //update games played
@@ -234,7 +259,3 @@ for (var i = 0; i < b.length; i++) {
      openHintsModal('Sorry','You are out of hints')
     }
   };
-
-function hardMode(){
-  WORDS = words1[category];
-}
