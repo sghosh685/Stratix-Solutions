@@ -37,6 +37,8 @@ function setTheme() {
   if (playerName===undefined || playerName===""){
     document.getElementById("username").innerHTML = "Player";
   }
+
+  document.getElementById("themeDisplay").innerHTML = String([category]);//display theme
 }
 
 function restart(){
@@ -61,7 +63,8 @@ function restart(){
   gameGrid(); //game grid already does this part ^^
   console.log("GAME RESTARTED");
   modal.style.display = "none"; //close game over modal
-
+  document.getElementById("themeDisplay").innerHTML = String([category]);//display theme
+  
   //enable all keys again
 
   updateWinStreak();
@@ -246,8 +249,7 @@ for (var i = 0; i < b.length; i++) {
     //high score updates
     if (currentScore > highScore){ 
       highScore = currentScore;
-      console.log(currentScore);
-      console.log("New high score!");
+      console.log("New high score! " + currentScore);
     }
     document.getElementById('score').innerHTML = currentScore;//update the score display
   }
