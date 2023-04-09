@@ -41,15 +41,31 @@ function setTheme() {
 
 function restart(){
   // Reset variables to initial values
-  //category = document.getElementById('restartTheme').value;
-  attemptsLeft=5;
+  category = document.getElementById('restartTheme').value;
+  WORDS = words[category];
+  //console.log("inside restart")
+  console.log(WORDS)
+  attemptsLeft=5; //A.K.A "totalWrongGuessesAllowed" on saikat's code
+  //currentScore = 0;
+  correctWord = WORDS[Math.floor(Math.random() * WORDS.length)]; //select a new random word
+  console.log(correctWord);
+  incorrectLetters = [];
+  rightHintArray = new Array(correctWord.length).fill(null);
   current = [];
   hint = 3;
-  incorrectLetters=[]
   gameOver=false;
-  setTheme();
+  // const board = document.getElementById("game-board"); //clear game board
+  // while (board.firstChild) {
+  //   board.removeChild(board.firstChild);
+  // }
+  gameGrid(); //game grid already does this part ^^
   console.log("GAME RESTARTED");
-  modal.style.display = "none";
+  modal.style.display = "none"; //close game over modal
+
+  updateWinStreak();
+  updateHighScore();
+  updateGamesPlayed();
+  updateWinPercentage();
 }
 
 ///INITIALIZATION
@@ -59,9 +75,12 @@ let current = [];
 let next = 0;
 var currentScore=0;
 var hint = 3;
+
 var highScore = 0;
 var winStreak = 0;
 var gamesPlayed = 0;
+var gamesWon = 0;
+
 var incorrectLetters=[]
 var hintsModal = document.getElementById("hintsModal");
 var modal = document.getElementById("gameOverModal");
@@ -107,6 +126,10 @@ function updateHighScore(){
 }
 function updateGamesPlayed(){
   document.getElementById("gamesPlayed").innerHTML = gamesPlayed;
+}
+function updateWinPercentage(){
+  var winPercentage = Math.floor((gamesWon/gamesPlayed)*100);
+  document.getElementById("gamesWon").innerHTML = winPercentage;
 }
 
 function gameGrid() {
@@ -167,10 +190,10 @@ function addLetterToBox(pressedKey) {
       indexes.push(i);
       currentScore += 1
       document.getElementById('score').innerHTML = currentScore;
+
       let btn = document.getElementById(pressedKey.toUpperCase())
       btn.addEventListener('click', () => {
-        
-        btn.disabled = true; //disable correct key after clicking once
+        btn.disabled = true; //disable correct key after clicking once to avoid adding more than 1 score
         console.log(btn.id);
       })
       
@@ -214,8 +237,10 @@ for (var i = 0; i < b.length; i++) {
     if (currentScore > highScore){ 
       highScore = currentScore;
       updateHighScore();
+      console.log("New high score!")
     }
     gamesPlayed = gamesPlayed +1; //update games played
+    gamesWon = gamesWon +1; //update games won
     gameOver=true;
     console.log("game over: " + gameOver);
   }
