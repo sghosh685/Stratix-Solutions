@@ -56,10 +56,10 @@ function restart(){
   current = [];
   hint = 3;
   gameOver=false;
-  // const board = document.getElementById("game-board"); //clear game board
-  // while (board.firstChild) {
-  //   board.removeChild(board.firstChild);
-  // }
+  const board = document.getElementById("game-board"); //clear game board
+  while (board.firstChild) {
+    board.removeChild(board.firstChild);
+  }
   gameGrid(); //game grid already does this part ^^
 
   //enable all keyboard buttons
@@ -210,11 +210,6 @@ function addLetterToBox(pressedKey) {
         btn.style.backgroundColor = "grey"; //change disabled key's color
         console.log(btn.id + " has already been guessed");
       })
-    //   if (gameOver===true){
-    //     btn.disabled = false;
-    //       btn.style.backgroundColor = "#d3d6da"; //change disabled key's color
-    //     console.log("All keys should be enabled now");
-    //   }
 
     }
   }
