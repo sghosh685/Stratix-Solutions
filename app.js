@@ -21,11 +21,11 @@ function setTheme() {
   }
   category = document.getElementById('theme').value;
   WORDS = words[category];
-  console.log(WORDS);
+  //console.log(WORDS);
   correctWord = WORDS[Math.floor(Math.random() * WORDS.length)];
   rightHintArray = new Array(correctWord.length).fill(null);
   gameGrid();
-  console.log(correctWord);
+  //console.log(correctWord);
   updateWinStreak();
   updateHighScore();
   updateGamesPlayed();
@@ -46,11 +46,11 @@ function restart(){
   category = document.getElementById('restartTheme').value;
   WORDS = words[category];
   //console.log("inside restart")
-  console.log(WORDS)
+  //console.log(WORDS)
   attemptsLeft=5; //A.K.A "totalWrongGuessesAllowed" on saikat's code
   currentScore = 0;
   correctWord = WORDS[Math.floor(Math.random() * WORDS.length)]; //select a new random word
-  console.log(correctWord);
+  //console.log(correctWord);
   incorrectLetters = [];
   rightHintArray = new Array(correctWord.length).fill(null);
   current = [];
