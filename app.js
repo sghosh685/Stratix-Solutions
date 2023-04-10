@@ -61,11 +61,18 @@ function restart(){
   //   board.removeChild(board.firstChild);
   // }
   gameGrid(); //game grid already does this part ^^
+
+  //enable all keyboard buttons
+  const keys = document.querySelectorAll("button");
+  keys.forEach(key => {
+  key.disabled=false;
+  key.style.backgroundColor = "#d3d6da"; //change disabled key's color back
+  console.log("All keys should be enabled now");
+  });
+
   console.log("GAME RESTARTED");
   modal.style.display = "none"; //close game over modal
   document.getElementById("themeDisplay").innerHTML = String([category]);//display theme
-
-  //enable all keys again
 
   updateWinStreak();
   updateHighScore();
@@ -203,11 +210,11 @@ function addLetterToBox(pressedKey) {
         btn.style.backgroundColor = "grey"; //change disabled key's color
         console.log(btn.id + " has already been guessed");
       })
-      if (gameOver===true){
-        btn.disabled = false;
-          btn.style.backgroundColor = "#d3d6da"; //change disabled key's color
-        console.log("All keys should be enabled now");
-      }
+    //   if (gameOver===true){
+    //     btn.disabled = false;
+    //       btn.style.backgroundColor = "#d3d6da"; //change disabled key's color
+    //     console.log("All keys should be enabled now");
+    //   }
 
     }
   }
