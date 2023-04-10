@@ -1,25 +1,7 @@
-//Player Name ///////////////////////////////////////////////////////////////////////////
 
-//This function get player name from input box on HOME page and stores the user name in a variable called playerName
-var playerName;
-
-function returnName() {
-  playerName = document.getElementById('playerName').value;
-}
 
 // "WELCOME" MODAL /////////////////////////////////////////////////////////////////////////////
-// var welcome = document.getElementById("myWelcome");
-// var span4 = document.getElementsByClassName("close4")[0];
-
-// span4.onclick = function() {
-//   welcome.style.display = "none";
-// }
-
-// window.onclick = function(event) {
-//   if (event.target == settings) {
-//     welcome.style.display = "none";
-//   }
-// }
+//Welcome modal does not need to be closed manually. It will close once the player chooses a theme and hits "PLAY"
 
 // "ABOUT" MODAL /////////////////////////////////////////////////////////////////////
 var about = document.getElementById("myAbout");
@@ -97,4 +79,27 @@ window.onclick = function(event) {
   if (event.target == settings) {
     settings.style.display = "none";
   }
+}
+
+//Dark Mode
+function darkMode(){
+  var gamePage = document.body;
+  gamePage.classList.toggle("dark-mode");
+  
+  document.getElementById("mySettings").style.color= "black";
+  document.getElementById("myAbout").style.color= "black";
+  document.getElementById("myRules").style.color= "black";
+  document.getElementById("myGameStats").style.color= "black";
+  document.getElementById("gameOverModal").style.color= "black";
+  document.getElementById("hintsModal").style.color= "black";
+
+  document.getElementById("clicked-box").style.borderColor="white"; //clicked letters box boarder
+  if (document.getElementById("darkModeToggle").checked == false){
+    document.getElementById("clicked-box").style.borderColor="black";
+  }
+}
+
+window.onload = function(){ //unchecks all toggles when the page loads
+  document.getElementById("darkModeToggle").checked=false;
+  //document.getElementById("hardModeToggle").checked=false;
 }

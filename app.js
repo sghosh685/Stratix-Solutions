@@ -43,6 +43,11 @@ function restart() {
   while (board.firstChild) {
     board.removeChild(board.firstChild);
   }
+  //enable all keyboard buttons
+  const keys = document.querySelectorAll("button");
+  keys.forEach(key => {
+  key.disabled=false;
+});
   gameGrid();
 
   console.log("GAME RESTARTED");
@@ -53,6 +58,7 @@ function closeModal() {
   const modal = document.getElementById("HintModal");
   modal.style.display = "none";
 }
+
 
 
 var totalWrongGuessesAllowed = 5;
@@ -175,10 +181,7 @@ function addLetterToBox(pressedKey) {
       currentScore += 1
       document.getElementById('score').innerHTML = currentScore;
       let btn = document.getElementById(pressedKey.toUpperCase())
-      btn.addEventListener('click', () => {
-        btn.disabled = true;
-        console.log(btn.id);
-      })
+      btn.disabled = true;
       
     }
   }
@@ -223,9 +226,6 @@ function addLetterToBox(pressedKey) {
     return;
   }
 }
-
-
-
 function fillInput(pressedKey) {
   let selectKey = String(pressedKey);
   addLetterToBox(selectKey);
@@ -251,7 +251,8 @@ function hints() {
     openModel('Sorry', `You couldn\'t guess right word! Game over!`)
   }
   else {
-    openModel('Sorry', 'You are out of hints')
+    hintModel('Sorry', 'You are out of hints')
+    
   }
 }
 
