@@ -45,8 +45,6 @@ function restart(){
   // Reset variables to initial values
   category = document.getElementById('restartTheme').value;
   WORDS = words[category];
-  //console.log("inside restart")
-  //console.log(WORDS)
   attemptsLeft=5; //A.K.A "totalWrongGuessesAllowed" on saikat's code
   currentScore = 0;
   correctWord = WORDS[Math.floor(Math.random() * WORDS.length)]; //select a new random word
@@ -213,15 +211,11 @@ function addLetterToBox(pressedKey) {
   for (var i = 0; i < correctWord.length; i++) {
     if (correctWord.toLowerCase()[i] === pressedKey) {
       indexes.push(i);
-      currentScore += 1
+      currentScore += 1;
       document.getElementById('score').innerHTML = currentScore;
 
       let btn = document.getElementById(pressedKey.toUpperCase())
-      btn.addEventListener('click', () => {
-        btn.disabled = true; //disable correct key after clicking once to avoid adding more than 1 score
-        //btn.style.backgroundColor = "grey"; //change disabled key's color
-        console.log(btn.id + " has already been guessed");
-      })
+      btn.disabled = true; //disable button after it was guessed correctly
 
     }
   }

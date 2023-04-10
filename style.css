@@ -89,7 +89,7 @@ header {
     width: 80%;
 }
 
-.about-content p, .rules-content p, .gameStats-content p, .settings-content p {
+.about-content p, .rules-content li, .rules-content p, .gameStats-content p {
 text-align: left;
 }
 
