@@ -174,8 +174,8 @@ function openModal(heading,content){ //makes the game over modal appear
 
 function openHintsModal(hintHeading,hintContent){ //makes the hint modal appear
   hintsModal.style.display = "block";
-  document.getElementById('hints-header').innerHTML=hintHeading
-  document.getElementById('hints-text').innerHTML=hintContent
+  document.getElementById('hints-header').innerHTML=hintHeading;
+  document.getElementById('hints-text').innerHTML=hintContent;
 }
 window.onclick = function(event) {
   if (event.target == hintsModal) {
@@ -208,6 +208,7 @@ function addLetterToBox(pressedKey) {
           btn.style.backgroundColor = "#d3d6da"; //change disabled key's color
         console.log("All keys should be enabled now");
       }
+
     }
   }
   if (indexes.length > 0) {
@@ -280,13 +281,13 @@ for (var i = 0; i < b.length; i++) {
   
       let letterPosition = Math.floor(Math.random() * NotFilledIndexes.length)
       let letter = correctWord[NotFilledIndexes[letterPosition]]
-     openHintsModal('Hint',`letter ${letter.toUpperCase()}`)
+      openHintsModal('Hint',`letter ${letter.toUpperCase()}`)
       hint -= 1;
       document.getElementById('current-hint-limit').innerHTML = hint;
       attemptsLeft =attemptsLeft-1;
       fillAttemptsLeft();
     }
-    else if(attemptsLeft === 0){
+    else if(attemptsLeft == 0){
      openHintsModal('Sorry', 'You couldn\'t guess right word! Game over!')
     }
     else{
