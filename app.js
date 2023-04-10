@@ -56,17 +56,17 @@ function restart(){
   current = [];
   hint = 3;
   gameOver=false;
-  const board = document.getElementById("game-board"); //clear game board
-  while (board.firstChild) {
-    board.removeChild(board.firstChild);
-  }
+  // const board = document.getElementById("game-board"); //clear game board
+  // while (board.firstChild) {
+  //   board.removeChild(board.firstChild);
+  // }
   gameGrid(); //game grid already does this part ^^
 
   //enable all keyboard buttons
   const keys = document.querySelectorAll("button");
   keys.forEach(key => {
   key.disabled=false;
-  key.style.backgroundColor = "#d3d6da"; //change disabled key's color back
+  //key.style.backgroundColor = "#d3d6da"; //change disabled key's color back
   console.log("All keys should be enabled now");
   });
 
@@ -171,7 +171,19 @@ function gameGrid() {
   }
 }
   
-
+function gameOver() {
+  gameOver = true;
+  if (currentScore === correctWord.length) {
+    document.getElementById('win-popup').style.display = 'block';
+  } else {
+    document.getElementById('lose-popup').style.display = 'block';
+  }
+  // disable the Hint button if it is active
+  if (hint > 0) {
+    hint = 0;
+    document.getElementById('hint-button').disabled = true;
+  }
+}
 
 function openModal(heading,content){ //makes the game over modal appear
   modal.style.display = "block";
@@ -207,7 +219,7 @@ function addLetterToBox(pressedKey) {
       let btn = document.getElementById(pressedKey.toUpperCase())
       btn.addEventListener('click', () => {
         btn.disabled = true; //disable correct key after clicking once to avoid adding more than 1 score
-        btn.style.backgroundColor = "grey"; //change disabled key's color
+        //btn.style.backgroundColor = "grey"; //change disabled key's color
         console.log(btn.id + " has already been guessed");
       })
 
