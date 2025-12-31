@@ -1,70 +1,107 @@
+# 🎮 Guess What - Word Guessing Game
 
-# Guess What
-## Project Title
-Guess What : The Ultimate Single-Player Word-Guessing Adventure
+[![Play Now](https://img.shields.io/badge/Play-Now-red?style=for-the-badge)](https://sghosh685.github.io/Stratix-Solutions/)
+[![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?logo=javascript&logoColor=black)](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
+[![HTML5](https://img.shields.io/badge/HTML5-E34F26?logo=html5&logoColor=white)](https://developer.mozilla.org/en-US/docs/Web/HTML)
+[![CSS3](https://img.shields.io/badge/CSS3-1572B6?logo=css3&logoColor=white)](https://developer.mozilla.org/en-US/docs/Web/CSS)
 
-## Project Description
-“Guess What” is a single-player word-guessing game with a score system. The game randomly takes a word stored in one of many arrays on the server-side file. Each array will be based around one of the several categories that the player was prompted to choose from at the start of the game. Each round has a limited number of guesses for a randomly given word, and correct answers earn points. The game will check if the generated word matches the user's input. This can be done by comparing each letter of the generated word with the letters inputted by the user. The game's interface includes a Hints section and the Game Stats system allows players to see their game statistics for the duration of the session. 
+An interactive single-player word guessing game built with vanilla JavaScript. Challenge yourself with different themed word categories and track your progress with the built-in stats system!
 
-## Functional Requirements
-Implement a word guess game with a user-friendly interface. Here are the functional features that we have included in the Game Design:
+## 🎯 Features
 
-1.User Name: The user’s name will be stored in a database once it is entered to be later used for the in-game data.
+- **Multiple Themes**: Choose from various categories (Sports, Computers, Cities, Food, and more)
+- **Score System**: Earn points for correct guesses
+- **Hints System**: Get help when you're stuck
+- **Game Statistics**: Track your performance across sessions
+- **Responsive Design**: Play on any device
+- **User Profiles**: Save your name and track individual progress
 
-2.Theme: The user will get to pick from a number of different word themes before the game starts (ex: sports, computers, cities, food, etc.). Once the user selects a theme, the back-end will choose from a specific array storing words that match said theme.
+## 🎮 How to Play
 
-3.Play: After inputting the NAME and THEME selection (dropdown Lists), we can start playing by submitting the User Name and User preferences. If no input or selection has been done the prompt will appear “Please enter a name or select theme to continue”.
+1. **Enter Your Name**: Your progress will be saved
+2. **Choose a Theme**: Select a word category from the dropdown
+3. **Start Guessing**: Type your guess and submit
+4. **Limited Attempts**: Each round has a limited number of guesses
+5. **Check Stats**: View your game statistics in the Game Stats section
 
-4.Rules: A simple window that will pop up to show text that explains the rules of the game.
+## 🚀 Live Demo
 
-5.Game Stats: The game can include a stats feature to track the points earned during the game. This feature can also record and display statistics when more than one game is played during a single session.
+**Play the game here:** [https://sghosh685.github.io/Stratix-Solutions/](https://sghosh685.github.io/Stratix-Solutions/)
 
-6.Settings: A setting window will pop up when we click the settings button. A user can configure the settings like dark or light background and toggle on/off the game audio.
+## 💻 Technologies Used
 
-7.Attempts: The game will display how many attempts the user has to guess the word. When the user makes an incorrect guess they will lose one attempt.
+- **Frontend**: HTML5, CSS3, Vanilla JavaScript
+- **Storage**: Local Storage for game stats
+- **Deployment**: GitHub Pages
 
-8.Score: The score will display on the top right of the screen during the entire game. The score will increment if the player makes a correct guess of letters.
+## 🛠️ Installation
 
-9.Qwerty Keyboard: To make it easier for the player to input letters, we can include a Qwerty keyboard on the screen that they can use to select the letters. This feature can make the game more user-friendly, especially for players who may have difficulty typing on a traditional keyboard.
+To run locally:
 
-10.Hints: When the user clicks the “Hint” button, the game will reveal a letter about the word they are trying to guess, and an attempt for that round will be deducted. There will be a hint limit indicated above the button.
+```bash
+# Clone the repository
+git clone https://github.com/sghosh685/Stratix-Solutions.git
 
-11.Guess word Empty Boxes: Initially, a row of empty boxes corresponding to the length of the randomly chosen word will appear in the middle of the screen. As the player correctly guesses each letter, the letters will be revealed in these boxes.
+# Navigate to directory
+cd Stratix-Solutions
 
-12.Incorrect Guessed Letter: The game keeps track of every letter that the player has guessed for each round and displays them in a small box so the player can know which letters that were guessed but are not included in the hidden words.
+# Open index.html in your browser
+open index.html  # Mac
+start index.html # Windows
+```
 
-13.Game theme Animation: The game can include different animation themes such as Crack the Code and Hacking the Computer to add to the player's experience.
+Or simply open `index.html` in any modern web browser.
 
-14.Responsive Design/Layout: Ensuring that our site is optimised for different screen sizes and devices, including smartphones, desktop and tablets.
+## 📁 Project Structure
 
-## Game Design
-![Phase 2 Game Design](https://user-images.githubusercontent.com/68800612/225209158-c1a2fb2d-d179-4489-af32-b05ffdd2041c.png)
+```
+Stratix-Solutions/
+├── index.html          # Main entry point
+├── game.html           # Game interface
+├── about.html          # About page
+├── game.css            # Game styles
+├── guessWhat.css       # Additional styles
+├── game.js             # Game logic
+└── guessWhat.js        # Core game mechanics
+```
 
+## 🎨 Game Features
 
-## Tech Stack
+### Theme Categories
+- 🏀 **Sports**: Test your sports knowledge
+- 💻 **Computers**: Tech-related words
+- 🏙️ **Cities**: Guess city names
+- 🍕 **Food**: Culinary vocabulary
+- And more!
 
-**Front :** Html, CSS, Javascript, JQuery
+### Scoring System
+- Points awarded for correct guesses
+- Bonus points for quick answers
+- Streak bonuses for consecutive wins
 
-**Server :** Node.js
+### Stats Tracking
+- Games played
+- Win/loss ratio
+- Average score
+- Best streak
 
-## Team Name
-Stratix Solutions
-## Team Members
+## 👥 Contributors
 
-| Name             | Github                                                                |
-| ----------------- | ------------------------------------------------------------------ |
-| Saikat Ghosh | sghosh685 |
-| Vanessa Yu | v-nessy |
-| Rodney Josephs | rodJ07 |
-| Oshin Sondhi | SondhiOshin |
+- [Saikat Ghosh](https://github.com/sghosh685)
+- [v-nessy](https://github.com/v-nessy)
 
-## Badges
-As an academic project for EECS 1012, we will be creating a web application under the guidance of our Instructor and project TA.
+## 📄 License
 
+This project is open source and available for educational purposes.
 
-Course: EECS1012 3.00 Introduction to Computing: a Net-centric Approach
-| Instructor: Hui Wang
-| Project TA: Miodrag Tasic
+## 🤝 Contributing
 
+Contributions, issues, and feature requests are welcome!
 
-[![York University](https://img.shields.io/badge/EECS%201012-York%20University-red.svg)](https://www.yorku.ca/)
+## 📧 Contact
+
+For questions or feedback, feel free to reach out via GitHub issues.
+
+---
+
+**Developed with ❤️ by the Stratix Solutions team**
