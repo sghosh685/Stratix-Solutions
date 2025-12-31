@@ -7,6 +7,14 @@
 
 An interactive single-player word guessing game built with vanilla JavaScript. Challenge yourself with different themed word categories and track your progress with the built-in stats system!
 
+## 📅 Project Timeline
+
+**Original Development:** September 2024 - October 2024  
+**Recent Updates by Saikat:** December 31, 2025
+- Added comprehensive documentation
+- Deployed to GitHub Pages for live demo
+- Enhanced README with detailed project information
+
 ## 🎯 Features
 
 - **Multiple Themes**: Choose from various categories (Sports, Computers, Cities, Food, and more)
